@@ -6,10 +6,11 @@ Clean objects in javascript,deleting undefined and null properties of objects
 
 ## Installation
 
-        npm install clean-obj
+    npm install clean-obj
 
 
 ## Basic Usage
+
 
 `cleanObj(obj [,strict]);`
 
@@ -30,7 +31,9 @@ obj = cleanObj(obj);
 
 ## Strict Mode
 
-If strict mode is set to true it will delete properties that are null and undefined, Default is false.
+If strict mode is set to true it will delete properties that are null and undefined.
+
+**Default is false.**
 
 ### Example
 
