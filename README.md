@@ -62,30 +62,30 @@ warnings or errors, you could do the following
 
 ```javascript
 
-    model.findOne({id : req.param('id')}, {}, function(err, doc) {
+model.findOne({id : req.param('id')}, {}, function(err, doc) {
+if(err) {
+    res.json(resError(err));
+} else {
+
+    var obj = {
+        email : req.body.email,
+        password : req.body.password,
+        role : req.body.role
+    };
+    
+    obj = cleanObj(obj, true);
+
+    deepExtend(doc, obj);
+    
+    doc.save(function(err) {
         if(err) {
-            res.json(resError(err));
+            res.json(resFail(err));
         } else {
-
-            var obj = {
-                email : req.body.email,
-                password : req.body.password,
-                role : req.body.role
-            };
-            
-            obj = cleanObj(obj, true);
-
-            deepExtend(doc, obj);
-            
-            doc.save(function(err) {
-                if(err) {
-                    res.json(resFail(err));
-                } else {
-                    res.json(resOkay());
-                }
-            });
+            res.json(resOkay());
         }
     });
+}
+});
 
 ```
 
