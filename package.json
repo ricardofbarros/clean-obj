@@ -1,7 +1,7 @@
 {
   "name": "clean-obj",
   "description": "Clean objects in javascript,deleting undefined and null properties of objects",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "http://github.com/ricardofbarros/clean-obj",
   "keywords": [
     "obj",
