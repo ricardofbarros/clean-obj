@@ -1,7 +1,7 @@
 clean-obj
 =========
 
-Clean objects in javascript,deleting undefined and null properties of objects
+Clean objects recursively, deleting undefined [and null] properties of objects
 
 
 ## Installation
@@ -54,6 +54,14 @@ obj = cleanObj(obj, true);
 console.log(obj);
 
 // Outputs { set: 'value' }
+```
+
+## How to run the tests?
+
+Simple, just run this in your terminal.
+
+```bash
+make test
 ```
 
 ## License
