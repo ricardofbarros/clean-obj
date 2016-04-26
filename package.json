@@ -1,8 +1,13 @@
 {
   "name": "clean-obj",
-  "description": "Clean objects recursively, deleting undefined [and null] properties of objects",
-  "version": "0.1.2",
+  "description": "Clean objects recursively, deleting undefined & null or falsy properties",
+  "version": "1.0.0",
   "homepage": "http://github.com/ricardofbarros/clean-obj",
+  "scripts": {
+    "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/.bin/_mocha",
+    "check-coverage": "./node_modules/istanbul/lib/cli.js check-coverage --statement 100 --branch 100 --function 100",
+    "lint": "standard | snazzy"
+  },
   "keywords": [
     "obj",
     "object",
@@ -28,7 +33,16 @@
     "node": ">= 0.8"
   },
   "devDependencies": {
-    "code": "^1.2.0",
-    "mocha": "^2.0.1"
-  }
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.3",
+    "mocha": "^2.4.5",
+    "pre-commit": "^1.1.2",
+    "snazzy": "^3.0.1",
+    "standard": "^6.0.8"
+  },
+  "pre-commit": [
+    "lint",
+    "test",
+    "check-coverage"
+  ]
 }
