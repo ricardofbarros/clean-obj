@@ -28,7 +28,9 @@ function cleanObj (obj, strict) {
 
     // If value is an object (excluding date objects)
     if (typeOfValue === 'object' && toStr.call(value) !== '[object Date]') {
-      return cleanObj(ref[key], strict)
+      if (cleanObj(ref[key], strict) === null) {
+        delete ref[key]
+      }
     }
   }
 }
