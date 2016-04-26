@@ -1,8 +1,7 @@
 clean-obj
 =========
 
-Clean objects recursively, deleting undefined [and null] properties of objects
-
+Clean objects recursively, deleting undefined & null or falsy properties.
 
 ## Installation
 
@@ -10,58 +9,26 @@ Clean objects recursively, deleting undefined [and null] properties of objects
   npm i clean-obj --save
 ```
 
-## Basic Usage
+## Usage
 
-`cleanObj(obj [,strict]);`
+`cleanObj(obj [,strict])`
 
-## Non-Strict Mode
-
-The usage is very simple, in the following example we are deleting all object properties that are `undefined`.
+The usage of this module is very straightforward, as you can see in the example below.
 
 ```javascript
-var cleanObj = require('clean-obj');
+var cleanObj = require('clean-obj')
 
 var obj = {
-  set: 'value',
+  key: 'value',
   undf: undefined,
-  nullz: null
-};
+  nullz: null,
+  falsy: 0,
+  bool: false
+}
 
-obj = cleanObj(obj);
+cleanObj(obj) // { set: 'value', falsy: 0, bool: false }
 
-console.log(obj);
-
-// Outputs { set: 'value', nullz: null }
-```
-
-## Strict Mode
-
-If strict mode is set to true it will delete all object properties that are `null` and `undefined`.
-
-### Example
-
-```javascript
-var cleanObj = require('clean-obj');
-
-var obj = {
-  set: 'value',
-  undf: undefined,
-  nullz: null
-};
-
-obj = cleanObj(obj, true);
-	
-console.log(obj);
-
-// Outputs { set: 'value' }
-```
-
-## How to run the tests?
-
-Simple, just run this in your terminal.
-
-```bash
-make test
+cleanObj(obj, true) // { set: 'value' }
 ```
 
 ## License
