@@ -1,5 +1,5 @@
 var isEmpty = require('./lib/empty')
-var toStr = Object.prototype.toString.call
+var toStr = Object.prototype.toString
 
 module.exports = cleanObj
 
@@ -27,7 +27,7 @@ function cleanObj (obj, strict) {
     var typeOfValue = typeof value
 
     // If value is an object (excluding date objects)
-    if (typeOfValue === 'object' && toStr(value) !== '[object Date]') {
+    if (typeOfValue === 'object' && toStr.call(value) !== '[object Date]') {
       return cleanObj(ref[key], strict)
     }
   }
