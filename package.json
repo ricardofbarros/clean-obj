@@ -1,7 +1,7 @@
 {
   "name": "clean-obj",
   "description": "Clean objects recursively, deleting undefined & null or falsy properties",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "http://github.com/ricardofbarros/clean-obj",
   "scripts": {
     "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/.bin/_mocha",
@@ -44,5 +44,6 @@
     "lint",
     "test",
     "check-coverage"
-  ]
+  ],
+  "license": "MIT"
 }
